@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Konversi Suhu',
         theme: ThemeData(
           primarySwatch: Colors.brown,
@@ -54,6 +55,9 @@ class _MyAppState extends State<MyApp> {
               TextFormField(
                   controller: _inputUser,
                   keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+                  ],
                   decoration: const InputDecoration(
                     hintText: 'Masukkan suhu dalam celcius',
                   )),
